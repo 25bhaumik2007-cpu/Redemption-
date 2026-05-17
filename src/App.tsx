@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { cn } from './lib/utils';
 import { AppState } from './types';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function ReminderManager({ state, updateState }: { state: AppState, updateState: any }) {
   const events = state.events || [];
@@ -222,6 +223,7 @@ export default function App() {
           ))}
         </nav>
       </main>
+      <SpeedInsights />
     </div>
   );
 }
