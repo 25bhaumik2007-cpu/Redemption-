@@ -1,0 +1,8 @@
+{
+  "name": "Redemption",
+  "description": "A peaceful, minimal habit tracker and digital planner designed for clean productivity, daily routines, and elegant progress monitoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

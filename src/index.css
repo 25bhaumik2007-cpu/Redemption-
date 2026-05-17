@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Serif Display", serif;
+  --font-designer: "Outfit", sans-serif;
+  --font-mono: "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  --font-serif: "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  
+  --color-brand-peach: var(--accent-color);
+  --color-brand-cream: var(--bg-cream);
+  --color-brand-sand: var(--bg-sand);
+  --color-brand-ink: var(--text-main);
+  --color-brand-muted: var(--text-muted);
+
+  /* Fluid Spacing System */
+  --spacing-fluid-sm: clamp(0.5rem, 1vw, 1rem);
+  --spacing-fluid-md: clamp(1rem, 2vw, 2rem);
+  --spacing-fluid-lg: clamp(2rem, 4vw, 4rem);
+}
+
+:root {
+  --bg-cream: #FDFBF7;
+  --bg-sand: #F5EFEB;
+  --text-main: #2D2D2D;
+  --text-muted: #8E9299;
+  --accent-color: #FF9F6D;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-ink font-sans antialiased transition-colors duration-500 overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  * {
+    @apply border-brand-sand;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white border border-brand-sand shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[32px] transition-all duration-300;
+  }
+
+  .nav-blur {
+    @apply bg-brand-cream/80 backdrop-blur-xl border-b border-brand-sand;
+  }
+}
+
+/* Custom Scrollbar - Optimized for Windows and macOS */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+  background-clip: content-box;
+}
+
+/* Utils */
+.font-display { font-family: "DM Serif Display", serif; }
+.font-sans { font-family: "Inter", sans-serif; }
+.font-designer { font-family: "Outfit", sans-serif; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-in {
+  animation: fadeInScale 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
